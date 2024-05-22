@@ -10,8 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".MainActivity"
+        <!-- normal kotlin apk use below line -->
+        <!-- <activity android:name=".MainActivity" -->
+        <activity android:name="android.app.NativeActivity"
             android:exported="true">
+            <!-- normal kotlin apk no below line -->
+            <meta-data android:name="android.app.lib_name" android:value="fedimuigo"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

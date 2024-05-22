@@ -8,7 +8,21 @@ import com.ncorti.kotlin.template.app.databinding.ActivityMainBinding
 import com.ncorti.kotlin.template.library.FactorialCalculator
 import com.ncorti.kotlin.template.library.android.ToastUtil
 
+
+class NativeLib {
+    // external fun sayHello(): String
+    external fun sayHello(): Int
+
+    companion object {
+        init {
+            System.loadLibrary("fedimuigo");
+            System.out.println("fsdfdsff");
+        }
+    }
+}
+
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var binding: ActivityMainBinding
 
@@ -33,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.please_enter_a_number)
             }
             ToastUtil.showToast(this, message)
+
+            val rv = NativeLib().sayHello();
+            System.out.println("fsdfdsff"+rv);
         }
 
         binding.buttonAppcompose.setOnClickListener {
